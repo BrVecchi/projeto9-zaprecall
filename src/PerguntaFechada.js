@@ -1,8 +1,7 @@
 import setaPlay from "./imgs/seta_play.png"
 import styled from "styled-components";
 
-export default function PerguntaFechada(props) {
-    const {card, cardsMostrados, setCardsMonstrados} = props
+export default function PerguntaFechada({card, cardsMostrados, setCardsMonstrados}) {
 
     function abrirCard(card) {
       const novaCardsMostrados = cardsMostrados.map(cardEscolhido => (cardEscolhido === card) ? {numero: cardEscolhido.numero, pergunta:cardEscolhido.pergunta, resposta:cardEscolhido.resposta, estado:"aberto"} : {numero: cardEscolhido.numero, pergunta:cardEscolhido.pergunta, resposta:cardEscolhido.resposta, estado:cardEscolhido.estado})

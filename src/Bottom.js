@@ -1,11 +1,10 @@
 import styled from "styled-components";
 import Botao from "./Botao";
 
-export default function Bottom (props) {
+export default function Bottom ({VERDE, AMARELO, VERMELHO, CINZA}) {
     const texto1 = "Não lembrei"
     const texto2 = "Quase lembrei"
     const texto3 = "Zap!"
-    const {VERDE, AMARELO, VERMELHO, CINZA} = props
     const concluidos = 0
     return (
         <Footer>

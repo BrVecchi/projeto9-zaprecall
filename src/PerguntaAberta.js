@@ -1,12 +1,23 @@
 import setaVirar from "./imgs/seta_virar.png";
 import styled from "styled-components";
+import { useState } from "react";
 
-export default function PerguntaAberta(props) {
-    const {card} = props
+export default function PerguntaAberta({card}) {
+  const [estado, setEstado] = useState("pergunta")
+
+  function mostrarResposta() {
+    setEstado("resposta")
+    
+  }
     return (
+      (estado === "pergunta") ? 
     <Pergunta>
+      <p>{card.pergunta}</p>
+      <ImagemPergAber onClick={mostrarResposta} src={setaVirar} alt="seta girar"/>
+    </Pergunta>
+    :
+  <Pergunta>
       <p>{card.resposta}</p>
-      <ImagemPergAber src={setaVirar} alt="seta girar"/>
     </Pergunta>
     )
 }
