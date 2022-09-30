@@ -2,21 +2,20 @@ import styled from "styled-components";
 import setaVirar from "./imgs/seta_virar.png";
 import setaPlay from "./imgs/seta_play.png"
 
-export default function Perguntas() {
-  const PERGUNTAS = ["O que é JSX?", "O React é __", "Componentes devem iniciar com __", "Podemos colocar __ dentro do JSX", "O ReactDOM nos ajuda __", "Usamos o npm para __", "Usamos props para __", "Usamos estado (state) para __"]
-  const RESPOSTAS = ["Uma extensão de linguagem do JavaScript", "uma biblioteca JavaScript para construção de interfaces", "letra maiúscula", "expressões", "interagindo com a DOM para colocar componentes React na mesma", "gerenciar os pacotes necessários e suas dependências", "passar diferentes informações para componentes ", "dizer para o React quais informações quando atualizadas devem renderizar a tela novamente"]
+export default function Perguntas(props) {
+  const {cardsMostrados} = props
 
   return (
     <>
-    {PERGUNTAS.map((pergunta) => 
+    {cardsMostrados.map((card) => 
       <PerguntaFechada>
-        <p>{pergunta}</p>
+        <p>{card.pergunta}</p>
         <img src={setaPlay} alt="seta girar"/>
       </PerguntaFechada>)}
       
-      {RESPOSTAS.map((resposta) => 
+      {cardsMostrados.map((card) => 
       <PerguntaAberta>
-      <p>{resposta}</p>
+      <p>{card.resposta}</p>
       <ImagemPergAber src={setaVirar} alt="seta girar"/>
     </PerguntaAberta>)}
     </>
