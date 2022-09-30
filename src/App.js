@@ -44,8 +44,7 @@ export default function App() {
     <AppContainer>
       <ResetCSS />
       <GlobalStyle />
-      <Header />
-      <Iniciar display={estadoBotao} onClick={sortearPerguntas}>Iniciar!</Iniciar>
+      <Header estadoBotao={estadoBotao} sortearPerguntas={sortearPerguntas}/>
       <Perguntas cardsMostrados={cardsMostrados} setCardsMonstrados={setCardsMonstrados}/>
       <Bottom
         VERDE={VERDE}
@@ -69,21 +68,3 @@ const AppContainer = styled.div`
   padding-bottom: 200px;
 `;
 
-const Iniciar = styled.button`
-  width: 160px;
-  height: 50px;
-  font-family: "Recursive", sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 16px;
-  display: ${props=>props.display};
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: #ffffff;
-  background: green;
-  border-radius: 5px;
-  border: 1px solid ${props => props.color};
-  position: fixed;
-  top: 40%;
-`
