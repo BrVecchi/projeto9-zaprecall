@@ -2,10 +2,16 @@ import setaPlay from "./imgs/seta_play.png"
 import styled from "styled-components";
 
 export default function PerguntaFechada(props) {
-    const {card} = props
+    const {card, cardsMostrados, setCardsMonstrados} = props
+
+    function abrirCard(card) {
+      const novaCardsMostrados = cardsMostrados.map(cardEscolhido => (cardEscolhido === card) ? {numero: cardEscolhido.numero, pergunta:cardEscolhido.pergunta, resposta:cardEscolhido.resposta, estado:"aberto"} : {numero: cardEscolhido.numero, pergunta:cardEscolhido.pergunta, resposta:cardEscolhido.resposta, estado:cardEscolhido.estado})
+      setCardsMonstrados(novaCardsMostrados)
+    }
+
     return (
-    <Pergunta>
-        <p>{card.pergunta}</p>
+    <Pergunta onClick={()=>abrirCard(card)}>
+        <p>{card.numero}</p>
         <img src={setaPlay} alt="seta girar"/>
     </Pergunta>
     )

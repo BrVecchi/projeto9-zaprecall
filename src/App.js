@@ -8,29 +8,30 @@ import { useState } from "react";
 
 export default function App() {
   const DADOS = [
-    {pergunta:"O que é JSX?", resposta:"Uma extensão de linguagem do JavaScript"},
-    {pergunta:"O React é __", resposta:"uma biblioteca JavaScript para construção de interfaces"},
-    {pergunta:"Componentes devem iniciar com __", resposta:"letra maiúscula"},
-    {pergunta:"Podemos colocar __ dentro do JSX", resposta:"expressões"},
-    {pergunta:"O ReactDOM nos ajuda __", resposta:"interagindo com a DOM para colocar componentes React na mesma"},
-    {pergunta:"Usamos o npm para __", resposta:"gerenciar os pacotes necessários e suas dependências"},
-    {pergunta:"Usamos props para __", resposta:"passar diferentes informações para componentes"},
-    {pergunta:"Usamos estado (state) para __", resposta:"dizer para o React quais informações quando atualizadas devem renderizar a tela novamente"},
+    {numero: "Pergunta 1", pergunta:"O que é JSX?", resposta:"Uma extensão de linguagem do JavaScript", estado:"fechado"},
+    {numero: "Pergunta 2", pergunta:"O React é __", resposta:"uma biblioteca JavaScript para construção de interfaces", estado:"fechado"},
+    {numero: "Pergunta 3", pergunta:"Componentes devem iniciar com __", resposta:"letra maiúscula", estado:"fechado"},
+    {numero: "Pergunta 4", pergunta:"Podemos colocar __ dentro do JSX", resposta:"expressões", estado:"fechado"},
+    {numero: "Pergunta 5", pergunta:"O ReactDOM nos ajuda __", resposta:"interagindo com a DOM para colocar componentes React na mesma", estado:"fechado"},
+    {numero: "Pergunta 6", pergunta:"Usamos o npm para __", resposta:"gerenciar os pacotes necessários e suas dependências", estado:"fechado"},
+    {numero: "Pergunta 7", pergunta:"Usamos props para __", resposta:"passar diferentes informações para componentes", estado:"fechado"},
+    {numero: "Pergunta 8", pergunta:"Usamos estado (state) para __", resposta:"dizer para o React quais informações quando atualizadas devem renderizar a tela novamente", estado:"fechado"},
   ];
 
   const [cardsMostrados, setCardsMonstrados] = useState([]);
   const [estadoBotao, setEstadoBotao] = useState("flex")
+  console.log(cardsMostrados)
 
   function sortearPerguntas() {
     const numeroDeCards = prompt("Quantas perguntas quer responder?");
-    let novaArray = [...cardsMostrados];
-    while (novaArray.length < numeroDeCards) {
+    let novaCardsMostrados = [...cardsMostrados];
+    while (novaCardsMostrados.length < numeroDeCards) {
       let dado = DADOS[Math.floor(Math.random() * DADOS.length)];
-      if (!novaArray.includes(dado)) {
-        novaArray.push(dado);
+      if (!novaCardsMostrados.includes(dado)) {
+        novaCardsMostrados.push(dado);
       }
     }
-    setCardsMonstrados(novaArray)
+    setCardsMonstrados(novaCardsMostrados)
     const estadoBotaoNovo = "none"
     setEstadoBotao(estadoBotaoNovo)
   }
@@ -45,7 +46,7 @@ export default function App() {
       <GlobalStyle />
       <Header />
       <Iniciar display={estadoBotao} onClick={sortearPerguntas}>Iniciar!</Iniciar>
-      <Perguntas cardsMostrados={cardsMostrados} />
+      <Perguntas cardsMostrados={cardsMostrados} setCardsMonstrados={setCardsMonstrados}/>
       <Bottom
         VERDE={VERDE}
         AMARELO={AMARELO}
