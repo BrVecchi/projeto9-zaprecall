@@ -1,8 +1,16 @@
 import styled from "styled-components";
 
 export default function Botao(props) {
-  const { texto, corFundo } = props;
-  return <B cor={corFundo}>{texto}</B>;
+  const { texto, corFundo, card, setEstiloTexto, setCorTexto } = props;
+
+  function marcarResposta(card) {
+    const novaCorTexto = corFundo
+    setCorTexto(novaCorTexto)
+    const novoEstiloTexto = "line-through"
+    setEstiloTexto(novoEstiloTexto)
+  }
+
+  return <B onClick={()=>marcarResposta(card)} cor={corFundo}>{texto}</B>;
 }
 
 const B = styled.button`

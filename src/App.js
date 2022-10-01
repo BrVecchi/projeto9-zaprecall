@@ -8,19 +8,60 @@ import { useState } from "react";
 
 export default function App() {
   const DADOS = [
-    {numero: "Pergunta 1", pergunta:"O que é JSX?", resposta:"Uma extensão de linguagem do JavaScript", estado:"fechado"},
-    {numero: "Pergunta 2", pergunta:"O React é __", resposta:"uma biblioteca JavaScript para construção de interfaces", estado:"fechado"},
-    {numero: "Pergunta 3", pergunta:"Componentes devem iniciar com __", resposta:"letra maiúscula", estado:"fechado"},
-    {numero: "Pergunta 4", pergunta:"Podemos colocar __ dentro do JSX", resposta:"expressões", estado:"fechado"},
-    {numero: "Pergunta 5", pergunta:"O ReactDOM nos ajuda __", resposta:"interagindo com a DOM para colocar componentes React na mesma", estado:"fechado"},
-    {numero: "Pergunta 6", pergunta:"Usamos o npm para __", resposta:"gerenciar os pacotes necessários e suas dependências", estado:"fechado"},
-    {numero: "Pergunta 7", pergunta:"Usamos props para __", resposta:"passar diferentes informações para componentes", estado:"fechado"},
-    {numero: "Pergunta 8", pergunta:"Usamos estado (state) para __", resposta:"dizer para o React quais informações quando atualizadas devem renderizar a tela novamente", estado:"fechado"},
+    {
+      numero: "Pergunta 1",
+      pergunta: "O que é JSX?",
+      resposta: "Uma extensão de linguagem do JavaScript",
+      estado: "fechado",
+    },
+    {
+      numero: "Pergunta 2",
+      pergunta: "O React é __",
+      resposta: "uma biblioteca JavaScript para construção de interfaces",
+      estado: "fechado",
+    },
+    {
+      numero: "Pergunta 3",
+      pergunta: "Componentes devem iniciar com __",
+      resposta: "letra maiúscula",
+      estado: "fechado",
+    },
+    {
+      numero: "Pergunta 4",
+      pergunta: "Podemos colocar __ dentro do JSX",
+      resposta: "expressões",
+      estado: "fechado",
+    },
+    {
+      numero: "Pergunta 5",
+      pergunta: "O ReactDOM nos ajuda __",
+      resposta: "interagindo com a DOM para colocar componentes React na mesma",
+      estado: "fechado",
+    },
+    {
+      numero: "Pergunta 6",
+      pergunta: "Usamos o npm para __",
+      resposta: "gerenciar os pacotes necessários e suas dependências",
+      estado: "fechado",
+    },
+    {
+      numero: "Pergunta 7",
+      pergunta: "Usamos props para __",
+      resposta: "passar diferentes informações para componentes",
+      estado: "fechado",
+    },
+    {
+      numero: "Pergunta 8",
+      pergunta: "Usamos estado (state) para __",
+      resposta:
+        "dizer para o React quais informações quando atualizadas devem renderizar a tela novamente",
+      estado: "fechado",
+    },
   ];
 
   const [cardsMostrados, setCardsMonstrados] = useState([]);
-  const [estadoBotao, setEstadoBotao] = useState("flex")
-  console.log(cardsMostrados)
+  const [estadoBotao, setEstadoBotao] = useState("flex");
+  console.log(cardsMostrados);
 
   function sortearPerguntas() {
     const numeroDeCards = prompt("Quantas perguntas quer responder?");
@@ -31,14 +72,14 @@ export default function App() {
         novaCardsMostrados.push(dado);
       }
     }
-    novaCardsMostrados.forEach((card)=>{
-      const posicao = novaCardsMostrados.indexOf(card)
-      card.numero = `Pergunta ${posicao + 1}`
-    })
-    
-    setCardsMonstrados(novaCardsMostrados)
-    const estadoBotaoNovo = "none"
-    setEstadoBotao(estadoBotaoNovo)
+    novaCardsMostrados.forEach((card) => {
+      const posicao = novaCardsMostrados.indexOf(card);
+      card.numero = `Pergunta ${posicao + 1}`;
+    });
+
+    setCardsMonstrados(novaCardsMostrados);
+    const estadoBotaoNovo = "none";
+    setEstadoBotao(estadoBotaoNovo);
   }
 
   const VERDE = "#2FBE34";
@@ -49,14 +90,16 @@ export default function App() {
     <AppContainer>
       <ResetCSS />
       <GlobalStyle />
-      <Header estadoBotao={estadoBotao} sortearPerguntas={sortearPerguntas}/>
-      <Perguntas cardsMostrados={cardsMostrados} setCardsMonstrados={setCardsMonstrados}/>
-      <Bottom
+      <Header estadoBotao={estadoBotao} sortearPerguntas={sortearPerguntas} />
+      <Perguntas
         VERDE={VERDE}
         AMARELO={AMARELO}
         VERMELHO={VERMELHO}
         CINZA={CINZA}
+        cardsMostrados={cardsMostrados}
+        setCardsMonstrados={setCardsMonstrados}
       />
+      <Bottom />
     </AppContainer>
   );
 }
@@ -72,4 +115,3 @@ const AppContainer = styled.div`
   padding: 0px;
   padding-bottom: 200px;
 `;
-

@@ -1,18 +1,10 @@
 import styled from "styled-components";
-import Botao from "./Botao";
 
-export default function Bottom ({VERDE, AMARELO, VERMELHO, CINZA}) {
-    const texto1 = "Não lembrei"
-    const texto2 = "Quase lembrei"
-    const texto3 = "Zap!"
+
+export default function Bottom () {
     const concluidos = 0
     return (
         <Footer>
-            <Botoes>
-                <Botao texto={texto1} corFundo={VERMELHO}/>
-                <Botao texto={texto2} corFundo={AMARELO}/>
-                <Botao texto={texto3} corFundo={VERDE}/>
-            </Botoes>
             <span>({concluidos}/4) CONCLUÍDOS</span>
         </Footer>
     )
@@ -34,11 +26,3 @@ const Footer = styled.div`
     color: #333333;
     padding: 10px;
 `
-
-const Botoes = styled.div`
-    display: flex;
-    width: 80%;
-    justify-content: space-between;
-    margin: 20px;
-`
-
