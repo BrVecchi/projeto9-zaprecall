@@ -31,6 +31,11 @@ export default function App() {
         novaCardsMostrados.push(dado);
       }
     }
+    novaCardsMostrados.forEach((card)=>{
+      const posicao = novaCardsMostrados.indexOf(card)
+      card.numero = `Pergunta ${posicao + 1}`
+    })
+    
     setCardsMonstrados(novaCardsMostrados)
     const estadoBotaoNovo = "none"
     setEstadoBotao(estadoBotaoNovo)
