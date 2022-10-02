@@ -1,7 +1,7 @@
 import PerguntaFechada from "./PerguntaFechada";
 import PerguntaAberta from "./PerguntaAberta";
 
-export default function Perguntas({ cardsMostrados, setCardsMonstrados, VERDE, VERMELHO, AMARELO, CINZA }) {
+export default function Perguntas({ cardsMostrados, setCardsMostrados, VERDE, VERMELHO, AMARELO, CINZA }) {
   return (
     <>
       {cardsMostrados.map((card) =>
@@ -9,7 +9,10 @@ export default function Perguntas({ cardsMostrados, setCardsMonstrados, VERDE, V
           <PerguntaFechada
             card={card}
             cardsMostrados={cardsMostrados}
-            setCardsMonstrados={setCardsMonstrados}
+            setCardsMostrados={setCardsMostrados}
+            VERDE={VERDE}
+            AMARELO={AMARELO}
+            VERMELHO={VERMELHO}
           />
         ) : (
           <PerguntaAberta
@@ -18,6 +21,8 @@ export default function Perguntas({ cardsMostrados, setCardsMonstrados, VERDE, V
             VERMELHO={VERMELHO}
             CINZA={CINZA}
             card={card}
+            cardsMostrados={cardsMostrados}
+            setCardsMostrados={setCardsMostrados}
           />
         )
       )}

@@ -13,42 +13,56 @@ export default function App() {
       pergunta: "O que é JSX?",
       resposta: "Uma extensão de linguagem do JavaScript",
       estado: "fechado",
+      corTexto: "#333333",
+      decoration: "unset"
     },
     {
       numero: "Pergunta 2",
       pergunta: "O React é __",
       resposta: "uma biblioteca JavaScript para construção de interfaces",
       estado: "fechado",
+      corTexto: "#333333",
+      decoration: "unset"
     },
     {
       numero: "Pergunta 3",
       pergunta: "Componentes devem iniciar com __",
       resposta: "letra maiúscula",
       estado: "fechado",
+      corTexto: "#333333",
+      decoration: "unset"
     },
     {
       numero: "Pergunta 4",
       pergunta: "Podemos colocar __ dentro do JSX",
       resposta: "expressões",
       estado: "fechado",
+      corTexto: "#333333",
+      decoration: "unset"
     },
     {
       numero: "Pergunta 5",
       pergunta: "O ReactDOM nos ajuda __",
       resposta: "interagindo com a DOM para colocar componentes React na mesma",
       estado: "fechado",
+      corTexto: "#333333",
+      decoration: "unset"
     },
     {
       numero: "Pergunta 6",
       pergunta: "Usamos o npm para __",
       resposta: "gerenciar os pacotes necessários e suas dependências",
       estado: "fechado",
+      corTexto: "#333333",
+      decoration: "unset"
     },
     {
       numero: "Pergunta 7",
       pergunta: "Usamos props para __",
       resposta: "passar diferentes informações para componentes",
       estado: "fechado",
+      corTexto: "#333333",
+      decoration: "unset"
     },
     {
       numero: "Pergunta 8",
@@ -56,10 +70,12 @@ export default function App() {
       resposta:
         "dizer para o React quais informações quando atualizadas devem renderizar a tela novamente",
       estado: "fechado",
+      corTexto: "#333333",
+      decoration: "unset"
     },
   ];
 
-  const [cardsMostrados, setCardsMonstrados] = useState([]);
+  const [cardsMostrados, setCardsMostrados] = useState([]);
   const [estadoBotao, setEstadoBotao] = useState("flex");
   console.log(cardsMostrados);
 
@@ -77,7 +93,7 @@ export default function App() {
       card.numero = `Pergunta ${posicao + 1}`;
     });
 
-    setCardsMonstrados(novaCardsMostrados);
+    setCardsMostrados(novaCardsMostrados);
     const estadoBotaoNovo = "none";
     setEstadoBotao(estadoBotaoNovo);
   }
@@ -97,7 +113,7 @@ export default function App() {
         VERMELHO={VERMELHO}
         CINZA={CINZA}
         cardsMostrados={cardsMostrados}
-        setCardsMonstrados={setCardsMonstrados}
+        setCardsMostrados={setCardsMostrados}
       />
       <Bottom />
     </AppContainer>

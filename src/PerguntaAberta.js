@@ -5,18 +5,17 @@ import Botao from "./Botao";
 
 export default function PerguntaAberta({
   card,
+  cardsMostrados,
+  setCardsMostrados,
   VERDE,
   AMARELO,
   VERMELHO,
   CINZA,
 }) {
   const [perguntaOuResposta, setPerguntaOuResposta] = useState("pergunta");
-  const [corTexto, setCorTexto] = useState("#33333")
-  const [estiloTexto, setEstiloTexto] = useState("unset")
   const texto1 = "Não lembrei";
   const texto2 = "Quase lembrei";
   const texto3 = "Zap!";
-  console.log(`o verde é: ${VERDE}`)
 
   function mostrarResposta() {
     setPerguntaOuResposta("resposta");
@@ -31,14 +30,16 @@ export default function PerguntaAberta({
       />
     </Pergunta>
   ) : (
+    <>
     <Pergunta>
-      <TextoResposta cor={corTexto} estilo={estiloTexto}>{card.resposta}</TextoResposta>
+      <TextoResposta>{card.resposta}</TextoResposta>
       <Botoes>
-        <Botao texto={texto1} corFundo={VERMELHO} card={card} setEstiloTexto={setEstiloTexto} setCorTexto={setCorTexto}/>
-        <Botao texto={texto2} corFundo={AMARELO} card={card} setEstiloTexto={setEstiloTexto} setCorTexto={setCorTexto}/>
-        <Botao texto={texto3} corFundo={VERDE} card={card} setEstiloTexto={setEstiloTexto} setCorTexto={setCorTexto}/>
+        <Botao texto={texto1} corFundo={VERMELHO} card={card} cardsMostrados={cardsMostrados} setCardsMostrados={setCardsMostrados}/>
+        <Botao texto={texto2} corFundo={AMARELO} card={card} cardsMostrados={cardsMostrados} setCardsMostrados={setCardsMostrados}/>
+        <Botao texto={texto3} corFundo={VERDE} card={card} cardsMostrados={cardsMostrados} setCardsMostrados={setCardsMostrados}/>
       </Botoes>
     </Pergunta>
+    </>
   );
 }
 
@@ -88,6 +89,5 @@ const TextoResposta = styled.p`
     font-weight: 700;
     font-size: 16px;
     line-height: 19px;
-    color: ${props => props.cor};
-    text-decoration: ${props => props.estilo}
+    color: "#33333";
 `;

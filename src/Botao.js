@@ -1,19 +1,17 @@
 import styled from "styled-components";
 
-export default function Botao(props) {
-  const { texto, corFundo, card, setEstiloTexto, setCorTexto } = props;
+export default function Botao({ texto, corFundo, card, cardsMostrados, setCardsMostrados }) {
 
-  function marcarResposta(card) {
-    const novaCorTexto = corFundo
-    setCorTexto(novaCorTexto)
-    const novoEstiloTexto = "line-through"
-    setEstiloTexto(novoEstiloTexto)
+  function fecharResposta(card) {
+    const novaCardsMostrados = cardsMostrados.map(cardEscolhido => (cardEscolhido === card) ? {numero: cardEscolhido.numero, pergunta:cardEscolhido.pergunta, resposta:cardEscolhido.resposta, estado:"fechado", corTexto: corFundo, decoration: "line-through"} : {numero: cardEscolhido.numero, pergunta:cardEscolhido.pergunta, resposta:cardEscolhido.resposta, estado:cardEscolhido.estado, corTexto: cardEscolhido.corTexto, decoration: cardEscolhido.decoration})
+    setCardsMostrados(novaCardsMostrados)
+    console.log(corFundo)
   }
 
-  return <B onClick={()=>marcarResposta(card)} cor={corFundo}>{texto}</B>;
+  return <Button onClick={()=>fecharResposta(card)} cor={corFundo}>{texto}</Button>;
 }
 
-const B = styled.button`
+const Button = styled.button`
   width: 90px;
   font-family: "Recursive", sans-serif;
   font-style: normal;
