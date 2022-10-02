@@ -77,12 +77,14 @@ export default function App() {
 
   const [cardsMostrados, setCardsMostrados] = useState([]);
   const [estadoBotao, setEstadoBotao] = useState("flex");
+  const [numeroDeCards, setNumeroDeCards] = useState(0)
   console.log(cardsMostrados);
 
   function sortearPerguntas() {
-    const numeroDeCards = prompt("Quantas perguntas quer responder?");
+    const novoNumeroDeCards = prompt("Quantas perguntas quer responder? Escolha de 1 à 8");
+    setNumeroDeCards(novoNumeroDeCards)
     let novaCardsMostrados = [...cardsMostrados];
-    while (novaCardsMostrados.length < numeroDeCards) {
+    while (novaCardsMostrados.length < novoNumeroDeCards) {
       let dado = DADOS[Math.floor(Math.random() * DADOS.length)];
       if (!novaCardsMostrados.includes(dado)) {
         novaCardsMostrados.push(dado);
@@ -115,7 +117,7 @@ export default function App() {
         cardsMostrados={cardsMostrados}
         setCardsMostrados={setCardsMostrados}
       />
-      <Bottom />
+      <Bottom cardsMostrados={cardsMostrados} numeroDeCards={numeroDeCards}/>
     </AppContainer>
   );
 }

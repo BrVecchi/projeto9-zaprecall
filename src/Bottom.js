@@ -1,11 +1,14 @@
 import styled from "styled-components";
 
 
-export default function Bottom () {
-    const concluidos = 0
+export default function Bottom ({cardsMostrados, numeroDeCards}) {
+    const arrayDeUns = cardsMostrados.map((card) => (card.corTexto !== "#333333") ? 1 : null)
+    const numeroDeConcluidos = (arrayDeUns.filter((element) => element===1).length)
+    const concluidos = numeroDeConcluidos
+
     return (
         <Footer>
-            <span>({concluidos}/4) CONCLUÍDOS</span>
+            <span>({concluidos}/{numeroDeCards}) CONCLUÍDOS</span>
         </Footer>
     )
 }
