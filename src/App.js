@@ -117,7 +117,7 @@ export default function App() {
         cardsMostrados={cardsMostrados}
         setCardsMostrados={setCardsMostrados}
       />
-      <Bottom cardsMostrados={cardsMostrados} numeroDeCards={numeroDeCards}/>
+      <Bottom cardsMostrados={cardsMostrados} numeroDeCards={numeroDeCards} VERDE={VERDE} AMARELO={AMARELO} VERMELHO={VERMELHO}/>
     </AppContainer>
   );
 }
