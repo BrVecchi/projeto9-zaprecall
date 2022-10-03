@@ -247,6 +247,7 @@ export default function App() {
       <GlobalStyle />
       <Header estadoBotao={estadoBotao} sortearPerguntas={sortearPerguntas} decks={decks} setDeckEscolhido={setDeckEscolhido}/>
       <Perguntas
+        data-identifier="flashcard"
         VERDE={VERDE}
         AMARELO={AMARELO}
         VERMELHO={VERMELHO}

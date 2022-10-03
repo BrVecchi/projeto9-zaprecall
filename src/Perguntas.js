@@ -7,6 +7,7 @@ export default function Perguntas({ cardsMostrados, setCardsMostrados, VERDE, VE
       {cardsMostrados.map((card, i) =>
         card.estado === "fechado" ? (
           <PerguntaFechada
+            data-identifier="flashcard-index-item"
             key={i}
             card={card}
             cardsMostrados={cardsMostrados}

@@ -13,24 +13,24 @@ export default function PerguntaFechada({card, cardsMostrados, setCardsMostrados
     
     return (
       (card.corTexto === "#333333") ? 
-    <Pergunta onClick={()=>abrirCard(card)} cor={card.corTexto} decoration={card.decoration}>
+    <Pergunta data-identifier="flashcard-show-btn" onClick={()=>abrirCard(card)} cor={card.corTexto} decoration={card.decoration}>
         <p>{card.numero}</p>
         <img src={setaPlay} alt="seta girar"/>
     </Pergunta> 
     : (card.corTexto === "#FF3030") ? 
-    <Pergunta onClick={()=>abrirCard(card)} cor={card.corTexto} decoration={card.decoration}>
+    <Pergunta data-identifier="flashcard-show-btn" onClick={()=>abrirCard(card)} cor={card.corTexto} decoration={card.decoration}>
         <p>{card.numero}</p>
-        <img src={erro} alt="seta girar"/>
+        <img data-identifier="flashcard-status" src={erro} alt="seta girar"/>
     </Pergunta> 
     : (card.corTexto === "#FF922E") ? 
-    <Pergunta onClick={()=>abrirCard(card)} cor={card.corTexto} decoration={card.decoration}>
+    <Pergunta data-identifier="flashcard-show-btn" onClick={()=>abrirCard(card)} cor={card.corTexto} decoration={card.decoration}>
         <p>{card.numero}</p>
-        <img src={quase} alt="seta girar"/>
+        <img data-identifier="flashcard-status" src={quase} alt="seta girar"/>
     </Pergunta> 
     :
-    <Pergunta onClick={()=>abrirCard(card)} cor={card.corTexto} decoration={card.decoration}>
+    <Pergunta data-identifier="flashcard-show-btn" onClick={()=>abrirCard(card)} cor={card.corTexto} decoration={card.decoration}>
         <p>{card.numero}</p>
-        <img src={certo} alt="seta girar"/>
+        <img data-identifier="flashcard-status" src={certo} alt="seta girar"/>
     </Pergunta> 
     )
 }

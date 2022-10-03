@@ -21,9 +21,10 @@ export default function PerguntaAberta({
     setPerguntaOuResposta("resposta");
   }
   return perguntaOuResposta === "pergunta" ? (
-    <Pergunta>
+    <Pergunta data-identifier="flashcard-question">
       <span>{card.pergunta}</span>
       <ImagemPergAber
+        data-identifier="flashcard-turn-btn"
         onClick={mostrarResposta}
         src={setaVirar}
         alt="seta girar"
@@ -31,12 +32,12 @@ export default function PerguntaAberta({
     </Pergunta>
   ) : (
     <>
-    <Pergunta>
+    <Pergunta data-identifier="flashcard-answer">
       <TextoResposta>{card.resposta}</TextoResposta>
       <Botoes>
-        <Botao texto={texto1} corFundo={VERMELHO} card={card} cardsMostrados={cardsMostrados} setCardsMostrados={setCardsMostrados}/>
-        <Botao texto={texto2} corFundo={AMARELO} card={card} cardsMostrados={cardsMostrados} setCardsMostrados={setCardsMostrados}/>
-        <Botao texto={texto3} corFundo={VERDE} card={card} cardsMostrados={cardsMostrados} setCardsMostrados={setCardsMostrados}/>
+        <Botao data-identifier="forgot-btn" texto={texto1} corFundo={VERMELHO} card={card} cardsMostrados={cardsMostrados} setCardsMostrados={setCardsMostrados}/>
+        <Botao data-identifier="almost-forgot-btn" texto={texto2} corFundo={AMARELO} card={card} cardsMostrados={cardsMostrados} setCardsMostrados={setCardsMostrados}/>
+        <Botao data-identifier="zap-btn" texto={texto3} corFundo={VERDE} card={card} cardsMostrados={cardsMostrados} setCardsMostrados={setCardsMostrados}/>
       </Botoes>
     </Pergunta>
     </>

@@ -15,11 +15,11 @@ export default function Header({
     <Logo margin="80px 0 60px 0" height="100vw" flexDirection={"column"}>
       <img width="102px" src={logoImg} alt="Logo imamge" />
       <h1>ZapRecall</h1>
-      <EscolhaDeck onChange={(event) => escolherDeck(event)} name="deckEscolhido" defaultValue="none">
+      <EscolhaDeck data-identifier="deck-selector" onChange={(event) => escolherDeck(event)} name="deckEscolhido" defaultValue="none">
         <option value="none" disabled hidden>Escolha um deck!</option>
-        {decks.map((deck, index) => <option key={index} value={index}>DECK {index + 1}</option>)}
+        {decks.map((deck, index) => <option data-identifier="deck-option" key={index} value={index}>DECK {index + 1}</option>)}
       </EscolhaDeck>
-      <Iniciar display={estadoBotao} onClick={sortearPerguntas}>
+      <Iniciar data-identifier="start-btn" display={estadoBotao} onClick={sortearPerguntas}>
         Iniciar!
       </Iniciar>
     </Logo>
