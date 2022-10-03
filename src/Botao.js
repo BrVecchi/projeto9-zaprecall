@@ -5,7 +5,6 @@ export default function Botao({ texto, corFundo, card, cardsMostrados, setCardsM
   function fecharResposta(card) {
     const novaCardsMostrados = cardsMostrados.map(cardEscolhido => (cardEscolhido === card) ? {numero: cardEscolhido.numero, pergunta:cardEscolhido.pergunta, resposta:cardEscolhido.resposta, estado:"fechado", corTexto: corFundo, decoration: "line-through"} : {numero: cardEscolhido.numero, pergunta:cardEscolhido.pergunta, resposta:cardEscolhido.resposta, estado:cardEscolhido.estado, corTexto: cardEscolhido.corTexto, decoration: cardEscolhido.decoration})
     setCardsMostrados(novaCardsMostrados)
-    console.log(corFundo)
   }
 
   return <Button onClick={()=>fecharResposta(card)} cor={corFundo}>{texto}</Button>;

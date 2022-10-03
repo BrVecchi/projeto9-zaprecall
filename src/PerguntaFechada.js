@@ -6,9 +6,6 @@ import styled from "styled-components";
 
 
 export default function PerguntaFechada({card, cardsMostrados, setCardsMostrados, VERDE, AMARELO, VERMELHO}) {
-
-  console.log(card.corTexto)
-
     function abrirCard(card) {
       const novaCardsMostrados = cardsMostrados.map(cardEscolhido => (cardEscolhido === card) ? {numero: cardEscolhido.numero, pergunta:cardEscolhido.pergunta, resposta:cardEscolhido.resposta, estado:"aberto", corTexto: cardEscolhido.corTexto, decoration: cardEscolhido.decoration} : {numero: cardEscolhido.numero, pergunta:cardEscolhido.pergunta, resposta:cardEscolhido.resposta, estado:cardEscolhido.estado, corTexto: cardEscolhido.corTexto, decoration: cardEscolhido.decoration})
       setCardsMostrados(novaCardsMostrados)
