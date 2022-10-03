@@ -13,7 +13,7 @@ export default function Bottom ({cardsMostrados, numeroDeCards, VERDE, AMARELO, 
         <Footer>
             <span>({concluidos}/{numeroDeCards}) CONCLUÍDOS</span>
             <FilaResposta>
-            {cardsMostrados.map((card) => (card.corTexto === VERDE) ? <img src={certo} alt="icone certo"/> : (card.corTexto === VERMELHO) ? <img src={erro} alt="icone erro"/> : (card.corTexto === AMARELO) ? <img src={quase} alt="icone quase"/> : null)}
+            {cardsMostrados.map((card, i) => (card.corTexto === VERDE) ? <img key={i} src={certo} alt="icone certo"/> : (card.corTexto === VERMELHO) ? <img key={i} src={erro} alt="icone erro"/> : (card.corTexto === AMARELO) ? <img key={i} src={quase} alt="icone quase"/> : null)}
             </FilaResposta>
         </Footer>
     )
